@@ -1,7 +1,7 @@
 #ifndef QUESTION_H
 #define QUESTION_H
 
-#define TOTAL_QUESTIONS 3
+#define TOTAL_QUESTIONS 12
 #define TOTAL_CHOICES 5
 
 typedef struct {
