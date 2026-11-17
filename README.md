@@ -18,9 +18,15 @@ Cada pergunta possui 5 alternativas (A até E) e cada resposta correta vale **10
 
 ## Funcionamento do jogo
 
-Ao iniciar o programa, uma mensagem de apresentação é exibida no terminal.
+Ao iniciar, o programa apresenta o menu principal:
 
-Em seguida, as perguntas são apresentadas individualmente.
+```text
+1 - Jogar
+2 - Ver ranking
+3 - Sair
+```
+
+Na opção **Jogar**, o programa solicita o nome do jogador e apresenta as perguntas individualmente.
 
 O jogador deve informar uma alternativa entre **A e E**.
 
@@ -33,7 +39,9 @@ O programa:
 5. Adiciona 10 pontos caso a resposta esteja correta.
 6. Mostra a pontuação atual.
 7. Utiliza recursividade para passar para a próxima pergunta.
-8. Ao terminar todas as perguntas, apresenta o resultado final.
+8. Ao terminar todas as perguntas, apresenta o resultado final e cadastra o nome e a pontuação no ranking.
+
+Na opção **Ver ranking**, as partidas realizadas na execução atual são ordenadas por pontuação e exibidas. A opção **Sair** libera todos os nós da lista encadeada antes de encerrar o programa.
 
 O programa também verifica entradas inválidas. Caso o jogador digite algo diferente de uma alternativa entre A e E, o programa solicita uma nova resposta.
 
@@ -41,9 +49,9 @@ O programa também verifica entradas inválidas. Caso o jogador digite algo dife
 
 Cada resposta correta vale **10 pontos**.
 
-O jogo possui 12 perguntas, portanto a pontuação máxima é:
+O jogo possui 10 perguntas, portanto a pontuação máxima é:
 
-**120 pontos**
+**100 pontos**
 
 Ao final, o programa apresenta uma mensagem de acordo com a pontuação obtida.
 
@@ -59,6 +67,8 @@ recursive-game/
     ├── main.c
     ├── game.c
     ├── game.h
+    ├── ranking.c
+    ├── ranking.h
     ├── questions.c
     └── question.h
 ```
@@ -67,7 +77,7 @@ recursive-game/
 
 **main.c**
 
-É o ponto de entrada do programa. Inicia o quiz, chama a função responsável pelas perguntas e apresenta o resultado final.
+É o ponto de entrada do programa. Controla o menu, inicia partidas, cadastra resultados e libera a lista ao sair.
 
 **game.c**
 
@@ -87,11 +97,15 @@ Contém as declarações das funções utilizadas pelo arquivo `game.c`.
 
 **questions.c**
 
-Contém as 12 perguntas do quiz, suas cinco alternativas e a resposta correta de cada pergunta.
+Contém as 10 perguntas do quiz, suas cinco alternativas e a resposta correta de cada pergunta.
 
 **question.h**
 
 Define a estrutura `Question`, a quantidade de perguntas e a quantidade de alternativas.
+
+**ranking.c** e **ranking.h**
+
+Definem a lista simplesmente encadeada de resultados e as operações para cadastrar, ordenar, exibir e liberar o ranking.
 
 ## Conceito de recursividade
 
@@ -116,16 +130,16 @@ runQuiz()
     ↓
 ...
     ↓
-Pergunta 12
+Pergunta 10
     ↓
 Resultado final
 ```
 
 A recursividade termina quando o índice atual chega ao total de perguntas.
 
-## Como rodar no macOS/Linux
+## Como rodar no macOS
 
-Com o GCC instalado, execute:
+Com o GCC ou o Command Line Tools instalado, entre na pasta do projeto e execute:
 
 ```bash
 make run
@@ -134,12 +148,27 @@ make run
 Ou compile manualmente:
 
 ```bash
-gcc -Wall -Wextra -Wpedantic src/main.c src/game.c src/questions.c -o quiz
+gcc -Wall -Wextra -Wpedantic src/main.c src/game.c src/questions.c src/ranking.c -o quiz
 ```
 
 Depois execute:
 
 ```bash
+./quiz
+```
+
+## Como rodar no Linux
+
+Com o GCC instalado, entre na pasta do projeto e execute:
+
+```bash
+make run
+```
+
+Ou compile e execute manualmente:
+
+```bash
+gcc -Wall -Wextra -Wpedantic src/main.c src/game.c src/questions.c src/ranking.c -o quiz
 ./quiz
 ```
 
@@ -165,14 +194,10 @@ Por exemplo:
 cd C:\Users\Aluno\Desktop\recursive-game
 ```
 
-### 2. Compile o projeto ()
+### 2. Compile o projeto
 
 ```powershell
-gcc -Wall -Wextra -Wpedantic src\main.c src\game.c src\questions.c -o quiz.exe
-```
-
-```bash
-gcc -Wall -Wextra -Wpedantic src/main.c src/game.c src/questions.c -o quiz.exe
+gcc -Wall -Wextra -Wpedantic src\main.c src\game.c src\questions.c src\ranking.c -o quiz.exe
 ```
 
 ### 3. Execute o jogo
@@ -187,12 +212,14 @@ Ao iniciar:
 
 ```text
 ========================================
-          DATA STRUCTURES QUIZ
+              MENU PRINCIPAL
 ========================================
-Cada questão equivale a 10 pontos
+1 - Jogar
+2 - Ver ranking
+3 - Sair
 ```
 
-Depois o programa apresenta uma pergunta:
+Após escolher `1`, informe o nome e responda às perguntas:
 
 ```text
 ========================================
@@ -209,7 +236,7 @@ E) Um banco de dados
 Enter your answer (A-E):
 ```
 
-Após responder, o programa informa se a resposta está correta e mostra a pontuação atual.
+Após responder, o programa informa se a resposta está correta, mostra a pontuação atual e cadastra o resultado ao final da partida.
 
 Ao finalizar todas as perguntas, o resultado final é apresentado:
 
@@ -217,8 +244,17 @@ Ao finalizar todas as perguntas, o resultado final é apresentado:
 ========================================
 FINAL RESULT
 ========================================
-Your score: 120 out of 120 points.
+Your score: 100 out of 100 points.
 Excellent! You answered every question correctly!
+```
+
+Para consultar os resultados cadastrados, escolha a opção `2` no menu:
+
+```text
+RANKING DO QUIZ
+
+1º Maria - 100 pontos
+2º João - 90 pontos
 ```
 
 ## Tecnologias utilizadas

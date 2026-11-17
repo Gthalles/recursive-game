@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Wpedantic
 TARGET = quiz
-SOURCES = src/main.c src/game.c src/questions.c
+SOURCES = src/main.c src/game.c src/questions.c src/ranking.c
 
 all:
 	$(CC) $(CFLAGS) $(SOURCES) -o $(TARGET)

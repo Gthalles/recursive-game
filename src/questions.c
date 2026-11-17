@@ -127,33 +127,5 @@ const Question questions[TOTAL_QUESTIONS] = {
             "Variavel"
         },
         'D'
-    },
-    {
-        "Qual palavra-chave e utilizada para declarar "
-        "uma estrutura em C?",
-        {
-            "object",
-            "class",
-            "structure",
-            "struct",
-            "data"
-        },
-        'D'
-    },
-    {
-        "Qual e a principal vantagem de utilizar "
-        "estruturas de dados?",
-        {
-            "Aumentar automaticamente a velocidade da internet",
-
-            "Facilitar a organizacao e manipulacao dos dados",
-
-            "Eliminar a necessidade de programacao",
-
-            "Substituir o sistema operacional",
-
-            "Impedir erros no programa"
-        },
-        'B'
     }
 };
