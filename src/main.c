@@ -9,7 +9,7 @@ int main(void) {
     printf("========================================\n");
     printf("          DATA STRUCTURES QUIZ\n");
     printf("========================================\n");
-    printf("Each correct answer is worth 10 points.\n");
+    printf("Cada questão equivale a 10 pontos\n");
 
     finalScore = runQuiz(
         questions,

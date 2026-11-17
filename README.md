@@ -165,10 +165,14 @@ Por exemplo:
 cd C:\Users\Aluno\Desktop\recursive-game
 ```
 
-### 2. Compile o projeto
+### 2. Compile o projeto ()
 
 ```powershell
 gcc -Wall -Wextra -Wpedantic src\main.c src\game.c src\questions.c -o quiz.exe
+```
+
+```bash
+gcc -Wall -Wextra -Wpedantic src/main.c src/game.c src/questions.c -o quiz.exe
 ```
 
 ### 3. Execute o jogo
@@ -185,7 +189,7 @@ Ao iniciar:
 ========================================
           DATA STRUCTURES QUIZ
 ========================================
-Each correct answer is worth 10 points.
+Cada questão equivale a 10 pontos
 ```
 
 Depois o programa apresenta uma pergunta:
