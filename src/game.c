@@ -6,6 +6,7 @@
 static void clearInputBuffer(void) {
     int character;
 
+    /* Remove caracteres restantes para que nao virem respostas seguintes. */
     while ((character = getchar()) != '\n' && character != EOF) {
     }
 }
@@ -13,21 +14,22 @@ static void clearInputBuffer(void) {
 static char readAnswer(void) {
     char answer;
 
-    printf("\nEnter your answer (A-E): ");
+    printf("\nDigite sua resposta (A-E): ");
 
     if (scanf(" %c", &answer) != 1) {
         clearInputBuffer();
-        printf("Invalid input. Please try again.\n");
+        printf("Entrada inválida. Tente novamente.\n");
 
         return readAnswer();
     }
 
     clearInputBuffer();
 
+    /* Aceita letras minusculas convertendo a resposta para maiuscula. */
     answer = (char)toupper((unsigned char)answer);
 
     if (answer < 'A' || answer > 'E') {
-        printf("Invalid choice. Enter a letter between A and E.\n");
+        printf("Opção inválida. Digite uma letra entre A e E.\n");
 
         return readAnswer();
     }
@@ -42,11 +44,12 @@ static void showQuestion(
     int i;
 
     printf("\n========================================\n");
-    printf("QUESTION %d\n", questionNumber);
+    printf("QUESTÃO %d\n", questionNumber);
     printf("========================================\n");
 
     printf("%s\n\n", question->statement);
 
+    /* As alternativas sao exibidas na mesma ordem em que estao armazenadas. */
     for (i = 0; i < TOTAL_CHOICES; i++) {
         printf(
             "%c) %s\n",
@@ -64,6 +67,7 @@ int runQuiz(
 ) {
     char answer;
 
+    /* Caso base: todas as perguntas foram respondidas, entao retorna a pontuacao. */
     if (index == totalQuestions) {
         return score;
     }
@@ -73,18 +77,19 @@ int runQuiz(
     answer = readAnswer();
 
     if (answer == questions[index].correctAnswer) {
-        printf("\nCorrect answer! +10 points.\n");
+        printf("\nResposta correta! +10 pontos.\n");
         score += 10;
     } else {
-        printf("\nIncorrect answer.\n");
+        printf("\nResposta incorreta.\n");
         printf(
-            "The correct answer was: %c.\n",
+            "A resposta correta era: %c.\n",
             questions[index].correctAnswer
         );
     }
 
-    printf("Current score: %d\n", score);
+    printf("Pontuação atual: %d\n", score);
 
+    /* Avanca recursivamente uma pergunta, levando a pontuacao acumulada. */
     return runQuiz(
         questions,
         index + 1,
@@ -97,22 +102,22 @@ void showResult(int score, int totalQuestions) {
     int maximumScore = totalQuestions * 10;
 
     printf("\n========================================\n");
-    printf("FINAL RESULT\n");
+    printf("RESULTADO FINAL\n");
     printf("========================================\n");
 
     printf(
-        "Your score: %d out of %d points.\n",
+        "Sua pontuação: %d de %d pontos.\n",
         score,
         maximumScore
     );
 
     if (score == maximumScore) {
-        printf("Excellent! You answered every question correctly!\n");
+        printf("Excelente! Você acertou todas as questões!\n");
     } else if (score >= maximumScore * 0.7) {
-        printf("Well done! You got a good result.\n");
+        printf("Muito bem! Você teve um bom resultado.\n");
     } else if (score > 0) {
-        printf("Good start, but you can still improve.\n");
+        printf("Bom começo, mas você ainda pode melhorar.\n");
     } else {
-        printf("Study a little more and try again.\n");
+        printf("Estude mais um pouco e tente novamente.\n");
     }
 }

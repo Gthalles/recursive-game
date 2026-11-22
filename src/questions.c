@@ -1,8 +1,9 @@
 #include "question.h"
 
+/* Banco de perguntas: cada item guarda enunciado, alternativas e gabarito. */
 const Question questions[TOTAL_QUESTIONS] = {
     {
-        "O que e uma estrutura de dados?",
+        "O que é uma estrutura de dados?",
         {
             "Um programa para criar sites",
             "Um tipo de computador",
@@ -13,44 +14,44 @@ const Question questions[TOTAL_QUESTIONS] = {
         'C'
     },
     {
-        "Qual estrutura de dados segue o principio "
-        "LIFO (Last In, First Out)?",
+        "Qual estrutura de dados segue o princípio "
+        "LIFO (último a entrar, primeiro a sair)?",
         {
             "Fila",
             "Lista",
-            "Arvore",
+            "Árvore",
             "Pilha",
             "Grafo"
         },
         'D'
     },
     {
-        "Qual estrutura de dados segue o principio "
-        "FIFO (First In, First Out)?",
+        "Qual estrutura de dados segue o princípio "
+        "FIFO (primeiro a entrar, primeiro a sair)?",
         {
             "Pilha",
             "Fila",
-            "Arvore",
+            "Árvore",
             "Grafo",
             "Vetor"
         },
         'B'
     },
     {
-        "Em C, qual estrutura e utilizada para armazenar "
-        "varios valores do mesmo tipo em posicoes "
-        "consecutivas de memoria?",
+        "Em C, qual estrutura é utilizada para armazenar "
+        "vários valores do mesmo tipo em posições "
+        "consecutivas de memória?",
         {
-            "Funcao",
-            "Struct",
-            "Array (vetor)",
+            "Função",
+            "Estrutura",
+            "Vetor",
             "Ponteiro",
-            "Condicao"
+            "Condição"
         },
         'C'
     },
     {
-        "Qual simbolo e usado para acessar o conteudo "
+        "Qual símbolo é usado para acessar o conteúdo "
         "apontado por um ponteiro em C?",
         {
             "&",
@@ -62,12 +63,12 @@ const Question questions[TOTAL_QUESTIONS] = {
         'D'
     },
     {
-        "Qual estrutura de dados e formada por elementos "
-        "que possuem uma relacao hierarquica?",
+        "Qual estrutura de dados é formada por elementos "
+        "que possuem uma relação hierárquica?",
         {
             "Pilha",
             "Fila",
-            "Arvore",
+            "Árvore",
             "Vetor",
             "Matriz"
         },
@@ -75,56 +76,56 @@ const Question questions[TOTAL_QUESTIONS] = {
     },
     {
         "Em uma fila, onde normalmente um novo elemento "
-        "e inserido?",
+        "é inserido?",
         {
-            "No inicio",
+            "No início",
             "No meio",
             "No final",
-            "Em qualquer posicao",
-            "Na posicao zero obrigatoriamente"
+            "Em qualquer posição",
+            "Na posição zero obrigatoriamente"
         },
         'C'
     },
     {
-        "Qual e a principal caracteristica de uma "
+        "Qual é a principal característica de uma "
         "lista encadeada?",
         {
             "Seus elementos precisam estar sempre em "
-            "posicoes consecutivas da memoria",
+            "posições consecutivas da memória",
 
-            "Seus elementos sao ligados por referencias "
+            "Seus elementos são ligados por referências "
             "ou ponteiros",
 
-            "Ela so pode armazenar numeros",
+            "Ela só pode armazenar números",
 
-            "Ela nao permite remocao de elementos",
+            "Ela não permite remoção de elementos",
 
             "Ela possui tamanho obrigatoriamente fixo"
         },
         'B'
     },
     {
-        "Qual algoritmo e utilizado para encontrar um "
-        "elemento percorrendo uma lista do inicio ao fim?",
+        "Qual algoritmo é utilizado para encontrar um "
+        "elemento percorrendo uma lista do início ao fim?",
         {
             "Busca linear",
-            "Busca binaria",
-            "Quick Sort",
-            "Merge Sort",
-            "Hashing"
+            "Busca binária",
+            "Ordenação rápida",
+            "Ordenação por intercalação",
+            "Espalhamento"
         },
         'A'
     },
     {
-        "Qual estrutura de dados e mais adequada para "
-        "representar conexoes entre cidades, computadores "
+        "Qual estrutura de dados é mais adequada para "
+        "representar conexões entre cidades, computadores "
         "ou pessoas?",
         {
             "Pilha",
             "Fila",
             "Vetor",
             "Grafo",
-            "Variavel"
+            "Variável"
         },
         'D'
     }

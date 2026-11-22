@@ -8,6 +8,7 @@
 static void limparEntradaRestante(void) {
     int caractere;
 
+    /* Descarta o restante da linha para nao contaminar a proxima leitura. */
     while ((caractere = getchar()) != '\n' && caractere != EOF) {
     }
 }
@@ -22,6 +23,7 @@ static int lerNomeJogador(char nome[], size_t tamanho) {
             return 0;
         }
 
+        /* Remove a quebra de linha; nomes longos tem o restante descartado. */
         ultimoCaractere = strcspn(nome, "\n");
 
         if (nome[ultimoCaractere] == '\n') {
@@ -31,7 +33,7 @@ static int lerNomeJogador(char nome[], size_t tamanho) {
         }
 
         if (nome[0] == '\0') {
-            printf("O nome nao pode ficar vazio.\n");
+            printf("O nome não pode ficar vazio.\n");
         }
     } while (nome[0] == '\0');
 
@@ -45,7 +47,7 @@ static void exibirMenu(void) {
     printf("1 - Jogar\n");
     printf("2 - Ver ranking\n");
     printf("3 - Sair\n");
-    printf("Escolha uma opcao: ");
+    printf("Escolha uma opção: ");
 }
 
 static int lerOpcaoMenu(int *opcao) {
@@ -60,6 +62,7 @@ static int lerOpcaoMenu(int *opcao) {
         limparEntradaRestante();
     }
 
+    /* O segundo campo detecta texto extra, como "1abc", junto ao numero. */
     if (sscanf(entrada, "%d %c", opcao, &caractereExtra) != 1) {
         return -1;
     }
@@ -73,15 +76,16 @@ static void jogarPartida(void) {
     Jogador *inicioAnterior;
 
     printf("\n========================================\n");
-    printf("          DATA STRUCTURES QUIZ\n");
+    printf("       QUIZ DE ESTRUTURAS DE DADOS\n");
     printf("========================================\n");
-    printf("Cada questao equivale a 10 pontos\n");
+    printf("Cada questão equivale a 10 pontos\n");
 
     if (!lerNomeJogador(nome, sizeof(nome))) {
-        printf("Nao foi possivel ler o nome do jogador.\n");
+        printf("Não foi possível ler o nome do jogador.\n");
         return;
     }
 
+    /* Inicia o quiz na primeira pergunta, com pontuacao zero. */
     finalScore = runQuiz(
         questions,
         0,
@@ -95,7 +99,7 @@ static void jogarPartida(void) {
     adicionarJogador(&inicioRanking, nome, finalScore);
 
     if (inicioRanking == inicioAnterior) {
-        printf("Nao foi possivel cadastrar o resultado.\n");
+        printf("Não foi possível cadastrar o resultado.\n");
     } else {
         printf("Resultado de %s cadastrado com sucesso.\n", nome);
     }
@@ -106,6 +110,7 @@ int main(void) {
     int opcao;
     int leitura;
 
+    /* Mantem o menu ativo ate o jogador escolher sair ou encerrar a entrada. */
     while (executando) {
         exibirMenu();
         leitura = lerOpcaoMenu(&opcao);
@@ -116,7 +121,7 @@ int main(void) {
         }
 
         if (leitura == -1) {
-            printf("Opcao invalida. Tente novamente.\n");
+            printf("Opção inválida. Tente novamente.\n");
             continue;
         }
 
@@ -135,7 +140,7 @@ int main(void) {
                 break;
 
             default:
-                printf("Opcao invalida. Tente novamente.\n");
+                printf("Opção inválida. Tente novamente.\n");
         }
     }
 

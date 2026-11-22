@@ -10,10 +10,7 @@ typedef struct {
     char correctAnswer;
 } Question;
 
-/*
- * extern declares that these variables exist,
- * but are defined in another file.
- */
+/* A tabela e definida em questions.c e compartilhada com os demais arquivos. */
 extern const Question questions[TOTAL_QUESTIONS];
 
 #endif

@@ -223,7 +223,7 @@ Após escolher `1`, informe o nome e responda às perguntas:
 
 ```text
 ========================================
-QUESTION 1
+QUESTÃO 1
 ========================================
 O que e uma estrutura de dados?
 
@@ -233,7 +233,7 @@ C) Uma forma de organizar e armazenar dados
 D) Um sistema operacional
 E) Um banco de dados
 
-Enter your answer (A-E):
+Digite sua resposta (A-E):
 ```
 
 Após responder, o programa informa se a resposta está correta, mostra a pontuação atual e cadastra o resultado ao final da partida.
@@ -242,10 +242,10 @@ Ao finalizar todas as perguntas, o resultado final é apresentado:
 
 ```text
 ========================================
-FINAL RESULT
+RESULTADO FINAL
 ========================================
-Your score: 100 out of 100 points.
-Excellent! You answered every question correctly!
+Sua pontuação: 100 de 100 pontos.
+Excelente! Você acertou todas as questões!
 ```
 
 Para consultar os resultados cadastrados, escolha a opção `2` no menu:
@@ -264,7 +264,7 @@ RANKING DO QUIZ
 * Terminal
 * Git/GitHub
 * Recursividade
-* Structs
+* Estruturas
 * Arrays
 * Funções
 * Entrada e saída de dados
@@ -273,3 +273,11 @@ RANKING DO QUIZ
 ## Objetivo do projeto
 
 O objetivo do projeto é desenvolver um jogo simples em linguagem C para aplicar conceitos de programação e estruturas de dados, principalmente o conceito de **recursividade**, além de trabalhar com funções, estruturas (`struct`), arrays, validação de entrada e organização do código em diferentes arquivos.
+
+## Requisitos e observações
+
+- Compilador GCC instalado e acessível pelo terminal.
+- Para usar `make run`, também é necessário ter o `make` instalado. No Windows, esses comandos funcionam em ambientes como MSYS2; no PowerShell, use os comandos de compilação com `gcc` apresentados acima.
+- O ranking existe somente enquanto o programa está aberto. Os resultados não são gravados em arquivo e se perdem ao encerrar o programa.
+- O menu, as perguntas e as mensagens exibidas durante o jogo estão em português.
+- A pontuação máxima atual é 100 pontos: são 10 perguntas, com 10 pontos por resposta correta.

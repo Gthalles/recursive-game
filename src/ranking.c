@@ -18,6 +18,7 @@ void adicionarJogador(Jogador **lista, char nome[], int pontuacao) {
         return;
     }
 
+    /* Reserva memoria para um novo no antes de alterar a lista. */
     novoJogador = malloc(sizeof(Jogador));
 
     if (novoJogador == NULL) {
@@ -27,6 +28,7 @@ void adicionarJogador(Jogador **lista, char nome[], int pontuacao) {
     strncpy(novoJogador->nome, nome, sizeof(novoJogador->nome) - 1);
     novoJogador->nome[sizeof(novoJogador->nome) - 1] = '\0';
     novoJogador->pontuacao = pontuacao;
+    /* Insere no inicio: o proximo do novo no passa a ser o inicio anterior. */
     novoJogador->prox = *lista;
     *lista = novoJogador;
 }
@@ -41,6 +43,7 @@ void ordenarRanking(Jogador *lista) {
         return;
     }
 
+    /* Repete as passagens ate que nao seja mais necessario trocar resultados. */
     do {
         houveTroca = 0;
         atual = lista;
@@ -70,7 +73,7 @@ void exibirRanking(Jogador *lista) {
     printf("\nRANKING DO QUIZ\n\n");
 
     if (lista == NULL) {
-        printf("Nenhuma pontuacao cadastrada.\n");
+        printf("Nenhuma pontuação cadastrada.\n");
         return;
     }
 
@@ -100,6 +103,7 @@ void liberarLista(Jogador **lista) {
 
     atual = *lista;
 
+    /* Guarda o proximo no antes de liberar o atual para manter o percurso. */
     while (atual != NULL) {
         proximo = atual->prox;
         free(atual);
