@@ -1,5 +1,6 @@
 #include "question.h"
 
+/* Conceitos: array de estruturas Question e dados constantes do quiz. */
 /* Banco de perguntas: cada item guarda enunciado, alternativas e gabarito. */
 const Question questions[TOTAL_QUESTIONS] = {
     {

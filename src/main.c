@@ -8,6 +8,7 @@
 static void limparEntradaRestante(void) {
     int caractere;
 
+    /* Conceito: leitura e limpeza de entrada. */
     /* Descarta o restante da linha para nao contaminar a proxima leitura. */
     while ((caractere = getchar()) != '\n' && caractere != EOF) {
     }
@@ -23,6 +24,7 @@ static int lerNomeJogador(char nome[], size_t tamanho) {
             return 0;
         }
 
+    /* Conceitos: vetor de caracteres e validação de entrada. */
         /* Remove a quebra de linha; nomes longos tem o restante descartado. */
         ultimoCaractere = strcspn(nome, "\n");
 
@@ -62,6 +64,7 @@ static int lerOpcaoMenu(int *opcao) {
         limparEntradaRestante();
     }
 
+    /* Conceito: validação de entrada. */
     /* O segundo campo detecta texto extra, como "1abc", junto ao numero. */
     if (sscanf(entrada, "%d %c", opcao, &caractereExtra) != 1) {
         return -1;
@@ -85,6 +88,7 @@ static void jogarPartida(void) {
         return;
     }
 
+    /* Conceito: array de perguntas passado para a funcao do quiz. */
     /* Inicia o quiz na primeira pergunta, com pontuacao zero. */
     finalScore = runQuiz(
         questions,
@@ -110,6 +114,7 @@ int main(void) {
     int opcao;
     int leitura;
 
+    /* Conceito: repeticao com while para manter o menu ativo. */
     /* Mantem o menu ativo ate o jogador escolher sair ou encerrar a entrada. */
     while (executando) {
         exibirMenu();

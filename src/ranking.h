@@ -1,12 +1,14 @@
 #ifndef RANKING_H
 #define RANKING_H
 
+/* Conceitos: struct para os dados do jogador e ponteiro para o proximo no. */
 typedef struct Jogador {
     char nome[50];
     int pontuacao;
     struct Jogador *prox;
 } Jogador;
 
+/* Conceito: ponteiro que marca o inicio da lista encadeada. */
 /* Inicio da lista simplesmente encadeada de resultados. */
 extern Jogador *inicioRanking;
 

@@ -4,6 +4,7 @@
 
 #include "ranking.h"
 
+/* Conceito: lista simplesmente encadeada, inicialmente vazia. */
 /* A lista nao possui jogadores quando o programa inicia. */
 Jogador *inicioRanking = NULL;
 
@@ -18,6 +19,7 @@ void adicionarJogador(Jogador **lista, char nome[], int pontuacao) {
         return;
     }
 
+    /* Conceito: alocação dinâmica de memória para um novo nó da lista. */
     /* Reserva memoria para um novo no antes de alterar a lista. */
     novoJogador = malloc(sizeof(Jogador));
 
@@ -28,6 +30,7 @@ void adicionarJogador(Jogador **lista, char nome[], int pontuacao) {
     strncpy(novoJogador->nome, nome, sizeof(novoJogador->nome) - 1);
     novoJogador->nome[sizeof(novoJogador->nome) - 1] = '\0';
     novoJogador->pontuacao = pontuacao;
+    /* Conceitos: ponteiros e inserção no início da lista encadeada. */
     /* Insere no inicio: o proximo do novo no passa a ser o inicio anterior. */
     novoJogador->prox = *lista;
     *lista = novoJogador;
@@ -43,6 +46,7 @@ void ordenarRanking(Jogador *lista) {
         return;
     }
 
+    /* Conceitos: ordenação por bolha e percurso da lista com ponteiros. */
     /* Repete as passagens ate que nao seja mais necessario trocar resultados. */
     do {
         houveTroca = 0;
@@ -77,6 +81,7 @@ void exibirRanking(Jogador *lista) {
         return;
     }
 
+    /* Conceito: percurso de uma lista encadeada usando ponteiro para o no atual. */
     atual = lista;
     posicao = 1;
 
@@ -103,6 +108,7 @@ void liberarLista(Jogador **lista) {
 
     atual = *lista;
 
+    /* Conceito: liberação de memória e percurso da lista encadeada. */
     /* Guarda o proximo no antes de liberar o atual para manter o percurso. */
     while (atual != NULL) {
         proximo = atual->prox;

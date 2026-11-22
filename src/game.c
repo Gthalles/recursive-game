@@ -20,6 +20,7 @@ static char readAnswer(void) {
         clearInputBuffer();
         printf("Entrada inválida. Tente novamente.\n");
 
+        /* Conceito: recursividade para pedir novamente uma entrada inválida. */
         return readAnswer();
     }
 
@@ -31,6 +32,7 @@ static char readAnswer(void) {
     if (answer < 'A' || answer > 'E') {
         printf("Opção inválida. Digite uma letra entre A e E.\n");
 
+        /* Conceito: recursividade para repetir a leitura até receber A-E. */
         return readAnswer();
     }
 
@@ -49,6 +51,7 @@ static void showQuestion(
 
     printf("%s\n\n", question->statement);
 
+    /* Conceitos: array de alternativas e repetição com for. */
     /* As alternativas sao exibidas na mesma ordem em que estao armazenadas. */
     for (i = 0; i < TOTAL_CHOICES; i++) {
         printf(
@@ -67,11 +70,13 @@ int runQuiz(
 ) {
     char answer;
 
+    /* Conceito: recursividade; este é o caso base que encerra as chamadas. */
     /* Caso base: todas as perguntas foram respondidas, entao retorna a pontuacao. */
     if (index == totalQuestions) {
         return score;
     }
 
+    /* Conceitos: acesso a um elemento do array e uso de ponteiro. */
     showQuestion(&questions[index], index + 1);
 
     answer = readAnswer();
@@ -89,6 +94,7 @@ int runQuiz(
 
     printf("Pontuação atual: %d\n", score);
 
+    /* Conceito: chamada recursiva para avançar até a próxima pergunta. */
     /* Avanca recursivamente uma pergunta, levando a pontuacao acumulada. */
     return runQuiz(
         questions,
