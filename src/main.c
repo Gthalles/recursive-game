@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <locale.h>
 #include <string.h>
 
 #include "question.h"
@@ -113,6 +114,8 @@ int main(void) {
     int executando = 1;
     int opcao;
     int leitura;
+
+    setlocale(LC_ALL, ".UTF8");
 
     /* Conceito: repeticao com while para manter o menu ativo. */
     /* Mantem o menu ativo ate o jogador escolher sair ou encerrar a entrada. */
